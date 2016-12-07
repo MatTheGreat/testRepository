@@ -35,7 +35,7 @@ Game.prototype.update = function() {
 	app.playerVelocity[1]=app.playerVelocity[1]+app.gravity;
 	if(app.m_gravityPower+app.gravityPowerRegen < app.maxGravityPower)
 	{
-		app.m_gravityPower += 0.1;
+		app.m_gravityPower += 0.5;
 	}
 	if(app.isGravityOn === false & app.m_gravityPower > 0)
 	{
@@ -44,6 +44,7 @@ Game.prototype.update = function() {
 		{
 			app.m_gravityPower = 0;
 			app.gravity = 0.2;
+			app.m_gravityPower = 100;
 			app.isGravityOn = true;
 		}
 	}
