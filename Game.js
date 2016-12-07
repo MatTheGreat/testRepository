@@ -39,8 +39,8 @@ Game.prototype.update = function() {
 		if(app.m_gravityPower < 0)
 		{
 			app.m_gravityPower = 0;
-			app.gravity = 0.2;
-			app.isGravityOn = true;
+			app.m_gravityPower = 10;
+			app.gravity = 5;
 		}
 	}
 	// if player velocity is moving left
