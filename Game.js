@@ -14,10 +14,10 @@ Game.prototype.init = function() {
 	thePlayer = new Player(0,0, colour(150, 0, 0));
 
 	touchDetection = new TouchDetection();
-
-	app.playerVelocity = [0, 0]; // player velocity held in app for time being
+	app.gravity = 10;
+	app.playerVelocity = [10, 0]; // player velocity held in app for time being
 	app.horizontalDirection = "Left"; // used to tell what direction the player is moving in horizontally
-	app.gravity = 0.2;
+	app.gravity = 0.1;
 	
 	app.m_gravityPower = 0;
 	app.maxGravityPower = 100;
@@ -27,10 +27,6 @@ Game.prototype.init = function() {
 
 Game.prototype.update = function() {
 	app.ctx.clearRect(0, 0, app.canvas.width, app.canvas.height);
-	var tempText = "Gravity Power: "+String(app.m_gravityPower);
-	app.ctx.fillText(tempText,30,30);
-	app.ctx.font = "14px Verdana";
-	thePlayer.draw();
 
 	app.playerVelocity[1]=app.playerVelocity[1]+app.gravity;
 	if(app.m_gravityPower+app.gravityPowerRegen < app.maxGravityPower)
@@ -55,7 +51,7 @@ Game.prototype.update = function() {
 			app.playerVelocity[0] = 0;
 		}
 		else {
-			app.playerVelocity[0] += 0.1;
+			app.playerVelocity[0] += 0.2;
 		}
 	}
 	// if player velocity is moving right
