@@ -27,10 +27,6 @@ Game.prototype.init = function() {
 
 Game.prototype.update = function() {
 	app.ctx.clearRect(0, 0, app.canvas.width, app.canvas.height);
-	var tempText = "Gravity : "+String(app.m_gravityPower);
-	app.ctx.fillText(tempText,30,30);
-	app.ctx.font = "14px Verdana";
-	thePlayer.draw();
 
 	app.playerVelocity[1]=app.playerVelocity[1]+app.gravity;
 	if(app.m_gravityPower+app.gravityPowerRegen < app.maxGravityPower)
